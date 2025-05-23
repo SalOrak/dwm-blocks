@@ -1,0 +1,16 @@
+# Update network status
+update_network() {
+    nint="wlp0s20f3"
+    ipv4=$(ip -o -4 a | grep $nint | awk '{print $4}')
+    ipv6=$(ip -o -6 a | grep $nint | awk '{print $4}')
+    net=""
+    if [[ -n $ipv4 ]]; then
+        net="  $ipv4"
+    elif [[ -n $ipv6 ]]; then
+        net="  $ipv6"
+    else
+        net="󰲜  Disconnected"
+    fi
+}
+
+update_network
