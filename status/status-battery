@@ -10,6 +10,7 @@ update_bat() {
             bat="$bat_status (capacity not available)"
         fi
     fi
+    echo -e "$bat"
 }
 
 update_bat
